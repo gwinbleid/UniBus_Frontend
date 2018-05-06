@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../actions/index';
 
-import Field from '../Parts/Field/Field';
+import Field from '../../components/Parts/Field/Field';
 
-export default class Login extends Component {
+class Auth extends Component {
     state = {
         fields: {
-            name: '',
+            login: '',
+            password: ''
         },
         fieldErrors: {},
 
@@ -23,9 +25,12 @@ export default class Login extends Component {
 
         this.setState({
             fields: {
-              name: '',
+              login: '',
+              password: '',
             },
         });
+
+        this.props.onAuth(this.state.fields.login, this.state.fields.password);
     }
 
     onInputChange = ({ name, value, error }) => {
@@ -43,7 +48,8 @@ export default class Login extends Component {
         const fieldErrors = this.state.fieldErrors;
         const errMessages = Object.keys(fieldErrors).filter((k) => fieldErrors[k]);
     
-        if (!person.name) return true;
+        if (!person.login) return true;
+        if (!person.password) return true;
         if (errMessages.length) return true;
     
         return false;
@@ -57,11 +63,19 @@ export default class Login extends Component {
                 <form onSubmit={this.onFormSubmit}>
 
                 <Field
-                    placeholder='Name'
-                    name='name'
-                    value={this.state.fields.name}
+                    placeholder='Login'
+                    name='login'
+                    value={this.state.fields.login}
                     onChange={this.onInputChange}
-                    validate={(val) => (val ? false : 'Name Required')}
+                    validate={(val) => (val ? false : 'Login Required')}
+                />
+
+                <Field
+                    placeholder='Password'
+                    name='password'
+                    value={this.state.fields.password}
+                    onChange={this.onInputChange}
+                    validate={(val) => (val ? false : 'Password Required')}
                 />
 
                     <br />
@@ -74,3 +88,11 @@ export default class Login extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (login, password) => dispatch(actions.auth(login, password,))
+    };
+};
+
+export default connect(null, mapDispatchToProps)(Auth);

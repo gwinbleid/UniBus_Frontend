@@ -3,7 +3,7 @@ import './App.css';
 
 // COMPONENTS/CONTAINERS
 import Navbar from './components/Navbar/Navbar';
-import Login from './components/Login/Login';
+import Auth from './containers/Auth/Auth';
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
         </nav>
 
         <section>
-          <Login />
+          <Auth />
         </section>
       </div>
     );
