@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// ROUTER
+import { 
+  Route,
+  Link,
+  Switch,
+} from 'react-router-dom';
+
 // COMPONENTS/CONTAINERS
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/UI/Navbar/Navbar';
 import Auth from './containers/Auth/Auth';
+import Table from './components/Table/Table';
+import DataGrid from './components/DataGrid/DataGrid';
 
 class App extends Component {
   render() {
@@ -12,9 +21,12 @@ class App extends Component {
         <nav>
           <Navbar />
         </nav>
-
         <section>
-          <Auth />
+          <Switch>
+            <Route path="/datagrid" component={DataGrid} />
+            <Route path="/table" component={Table} />
+            <Route path="/" exact component={Auth} />
+          </Switch>
         </section>
       </div>
     );

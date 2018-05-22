@@ -1,0 +1,22 @@
+{
+    "cars": [
+        {
+            "Color": "Red",
+            "Number": "1488",
+            "Model": "Ferrari",
+            "Capacity": "2"
+        },
+        {
+            "Color": "Black",
+            "Number": "3243",
+            "Model": "BWM",
+            "Capacity": "4"
+        },
+        {
+            "Color": "Blue",
+            "Number": "34r3432432",
+            "Model": "Toyota",
+            "Capacity": "5"
+        }
+    ]
+}

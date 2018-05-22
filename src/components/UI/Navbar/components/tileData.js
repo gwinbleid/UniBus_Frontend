@@ -9,31 +9,36 @@ import SendIcon from '@material-ui/icons/Send';
 import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
+import CommuteIcon from '@material-ui/icons/DirectionsCar';
 
 export const mailFolderListItems = (
     <div>
-
+      <Link to='/table'>
       <ListItem button>
         <ListItemIcon>
-          <InboxIcon />
+          <CommuteIcon />
         </ListItemIcon>
-        <ListItemText primary="DIch" />
+        <ListItemText primary="Список транспортных средств" />
       </ListItem>
-  
+      </Link>
+      
+      <Link to='/datagrid'>
       <ListItem button>
         <ListItemIcon>
           <StarIcon />
         </ListItemIcon>
-        <ListItemText primary="DIch" />
+        <ListItemText primary="Создание DataGrid" />
       </ListItem>
-  
+      </Link>
+
+      <Link to='/'>
       <ListItem button>
         <ListItemIcon>
           <SendIcon />
         </ListItemIcon>
-        <ListItemText primary="DIch" />
+        <ListItemText primary="Jбратно в Меню" />
       </ListItem>
-  
+      </Link>
 
       <ListItem button>
         <ListItemIcon>
